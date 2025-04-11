@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Session ID Retriever",
+  "version": "1.0",
+  "description": "A Chrome extension to retrieve session IDs and manage cookies.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "*://web.whatsapp.com/*",
+    "*://mail.google.com/*",
+    "*://www.instagram.com/*",
+    "*://www.facebook.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
